@@ -1,6 +1,6 @@
 package net.projecteuler.utils;
 
-public class PrimitiveUtils {
+public class Utils {
 
   public static int reversePrimeFactorization(int[] primes) {
 
@@ -69,7 +69,7 @@ public class PrimitiveUtils {
         if (flag) {
           flag = false;
         } else {
-          System.out.print(" + ");
+          System.out.print(" x ");
 
         }
         System.out.print(i);

@@ -1,6 +1,6 @@
 package net.projecteuler;
 
-import net.projecteuler.utils.PrimitiveUtils;
+import net.projecteuler.utils.Utils;
 
 /*
  * 2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any
@@ -16,7 +16,7 @@ public class Problem5 {
 
     for (int i = 2; i < 20; i++) {
 
-      int[] parts = PrimitiveUtils.doPrimeFactorization(i);
+      int[] parts = Utils.doPrimeFactorization(i);
 
       for (int j = 0; j < parts.length; j++) {
         if (primes[j] < parts[j]) {
@@ -26,9 +26,9 @@ public class Problem5 {
 
     }
 
-    PrimitiveUtils.prime_factorization_print(primes);
+    Utils.prime_factorization_print(primes);
 
-    System.out.println(PrimitiveUtils.reversePrimeFactorization(primes));
+    System.out.println(Utils.reversePrimeFactorization(primes));
 
     System.out.println(brute_forced());
   }
