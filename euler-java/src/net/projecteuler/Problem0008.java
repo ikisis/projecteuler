@@ -32,21 +32,7 @@ public class Problem0008 {
 
   public static void main(String[] args) {
 
-    int[] seq = seq();
-
-    int digit = 13;
-
-    long max = 0;
-    for (int i = 0; i < 1000 - digit; i++) {
-      long p = 1;
-      for (int j = 0; j < digit; j++) {
-        p = p * seq[i + j];
-      }
-
-      if (max < p) {
-        max = p;
-      }
-    }
+    brute_force();
 
   }
 
@@ -65,51 +51,51 @@ public class Problem0008 {
       if (max < p) {
         max = p;
         for (int j = 0; j < digit; j++) {
-          System.out.print(seq[i + j]);
+          // System.out.print(seq[i + j]);
         }
-        System.out.println(" : " + max + " : " + i);
+        // System.out.println(" : " + max + " : " + i);
       }
     }
 
     System.out.println(max);
   }
 
-  public static void solve1() {
-    int[] seq = seq();
-    int digit = 13;
-
-    int head = 0, tail = digit - 1;
-
-    int p = 1;
-    int max = 0;
-    int zeroCount = 0;
-    for (int i = head; i < digit; i++) {
-      p *= seq[i];
-      if (seq[i] == 0) {
-        zeroCount = 0;
-      }
-    }
-
-    while (tail < 1000) {
-      tail++;
-      if (seq[head] > 0) {
-        p = p / seq[head];
-        p = p * seq[tail];
-
-      } else {
-        p = 1;
-        for (int i = head + 1; i <= tail; i++) {
-
-        }
-      }
-      head++;
-      if (p > max) {
-        max = p;
-      }
-    }
-
-    System.out.println(max);
-  }
+//  public static void solve1() {
+//    int[] seq = seq();
+//    int digit = 13;
+//
+//    int head = 0, tail = digit - 1;
+//
+//    int p = 1;
+//    int max = 0;
+//    int zeroCount = 0;
+//    for (int i = head; i < digit; i++) {
+//      p *= seq[i];
+//      if (seq[i] == 0) {
+//        zeroCount = 0;
+//      }
+//    }
+//
+//    while (tail < 1000) {
+//      tail++;
+//      if (seq[head] > 0) {
+//        p = p / seq[head];
+//        p = p * seq[tail];
+//
+//      } else {
+//        p = 1;
+//        for (int i = head + 1; i <= tail; i++) {
+//
+//        }
+//      }
+//      head++;
+//      if (p > max) {
+//        max = p;
+//      }
+//    }
+//
+//    System.out.println(max);
+//  }
 
   private static int[] seq() {
     String seqString = "73167176531330624919225119674426574742355349194934" +
