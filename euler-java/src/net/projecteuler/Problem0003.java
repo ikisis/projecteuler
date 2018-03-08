@@ -5,7 +5,7 @@ package net.projecteuler;
  *
  * What is the largest prime factor of the number 600851475143 ?
  */
-public class Problem3 {
+public class Problem0003 {
 
   public static void main(String[] args) {
 

@@ -8,7 +8,7 @@ import net.projecteuler.utils.Utils;
  *
  * What is the 10 001st prime number?
  */
-public class Problem7 {
+public class Problem0007 {
 
   public static void main(String[] args) {
 

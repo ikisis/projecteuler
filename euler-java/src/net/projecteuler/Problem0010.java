@@ -5,7 +5,7 @@ package net.projecteuler;
  *
  * Find the sum of all the primes below two million.
  */
-public class Problem10 {
+public class Problem0010 {
 
   public static void main(String[] args) {
 
