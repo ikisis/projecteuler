@@ -2,6 +2,45 @@ package net.projecteuler.utils;
 
 public class Utils {
 
+  public static void slowmotion(long term) {
+
+    try {
+      Thread.sleep(term);
+    } catch (InterruptedException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
+  }
+
+  public static long stopwatch(Runnable runnable) {
+
+    long startTime = System.currentTimeMillis();
+
+    runnable.run();
+
+    long endTime = System.currentTimeMillis();
+
+    long lap = endTime - startTime;
+
+    System.out.println((lap) + "ms elapsed");
+
+    return lap;
+
+  }
+
+  public static void stopwatch(Runnable runnable1, Runnable runnable2) {
+    long lap1 = stopwatch(runnable1);
+    long lap2 = stopwatch(runnable2);
+
+    System.out.println("A : " + lap1 + "ms elapsed");
+    System.out.println("B : " + lap2 + "ms elapsed");
+
+    System.out.print(
+        (lap1 >= lap2 ? "B" : "A") + " reduced time " + ((lap1 - lap2) * 100 / lap1)
+            + "% than " + (lap1 <= lap2 ? "B" : "A"));
+
+  }
+
   public static int reversePrimeFactorization(int[] primes) {
 
     int res = 1;
