@@ -1,5 +1,7 @@
 package net.projecteuler;
 
+import net.projecteuler.utils.Utils;
+
 /*
  * A palindromic number reads the same both ways. The largest palindrome made from the product of
  * two 2-digit numbers is 9009 = 91 × 99.
@@ -14,36 +16,6 @@ public class Problem0004 {
 
   }
 
-  public static int greatest_common_divisor(int... nums) {
-
-    int max = 0;
-
-    for (int i = 0; i < nums.length; i++) {
-      if (max < nums[i]) {
-        max = nums[i];
-      }
-    }
-    int gcd = 0;
-    int[] divideds = new int[nums.length];
-    for (int i = 2; i < max; i++) {
-      boolean flag = true;
-      for (int j = 0; j < nums.length; j++) {
-        if (nums[j] % i != 0) {
-          flag = false;
-          break;
-        }
-      }
-
-      if (flag) {
-        gcd = i;
-
-      }
-    }
-
-    return gcd;
-
-  }
-
   public static void solved2_WIP() {
 
     int a = 1, b = 1, c = 1;
@@ -52,7 +24,7 @@ public class Problem0004 {
 
     int res2 = 100001 * a + 10010 * b + 1100 * c;
 
-    System.out.println(greatest_common_divisor(100001, 10010, 1100));
+    System.out.println(Utils.gcd(100001, 10010, 1100));
     // 11
 
     System.out.println(100001 / 11);

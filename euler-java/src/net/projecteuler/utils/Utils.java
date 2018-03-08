@@ -59,6 +59,35 @@ public class Utils {
 
   }
 
+  public static int gcd(int... nums) {
+
+    int max = 0;
+
+    for (int i = 0; i < nums.length; i++) {
+      if (max < nums[i]) {
+        max = nums[i];
+      }
+    }
+    int gcd = 0;
+    for (int i = 2; i < max; i++) {
+      boolean flag = true;
+      for (int j = 0; j < nums.length; j++) {
+        if (nums[j] % i != 0) {
+          flag = false;
+          break;
+        }
+      }
+
+      if (flag) {
+        gcd = i;
+
+      }
+    }
+
+    return gcd;
+
+  }
+
   public static int reversePrimeFactorization(int[] primes) {
 
     int res = 1;
