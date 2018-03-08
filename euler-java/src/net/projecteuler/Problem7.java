@@ -18,15 +18,15 @@ public class Problem7 {
 
     boolean[] checked = new boolean[max];
 
-    int count = 0;
-    for (int i = 2; i < max; i++) {
+    int count = 1;
+    for (int i = 3; i < max; i = i + 2) {
 
       if (checked[i]) {
         continue;
       }
 
       boolean flag = true;
-      for (int j = 2; j < i; j++) {
+      for (int j = 2; j * j < i; j++) {
         if (i % j == 0) {
           flag = false;
           break;
