@@ -2,6 +2,22 @@ package net.projecteuler.utils;
 
 public class Utils {
 
+  public static void print_seq_to_num(int[] seq) {
+    boolean flag = false;
+    for (int i = 0; i < seq.length; i++) {
+
+      if (!flag && seq[i] > 0) {
+        flag = true;
+      }
+
+      if (flag == true) {
+        System.out.print(seq[i]);
+      }
+
+    }
+    System.out.println();
+  }
+
   public static void print_grid(long[][] grid) {
     for (int i = 0; i < grid.length; i++) {
       for (int j = 0; j < grid[0].length; j++) {
