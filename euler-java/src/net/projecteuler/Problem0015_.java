@@ -9,11 +9,11 @@ import net.projecteuler.utils.Utils;
  *
  * How many such routes are there through a 20×20 grid?
  */
-public class Problem0015 {
+public class Problem0015_ {
 
   public static void main(String[] args) {
 
-    Utils.stopwatch(Problem0015::pascals_triangle);
+    Utils.stopwatch(Problem0015_::pascals_triangle);
   }
 
   @Deprecated
