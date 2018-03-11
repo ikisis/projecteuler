@@ -15,6 +15,103 @@ package net.projecteuler;
 public class Problem0017 {
 
   public static void main(String[] args) {
+
+    /*
+     * one two three four five six seven eight nine
+     * ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen
+     * twenty thirty forty fifty sixty seventy eighty ninety
+     * one hundred one thousand
+     */
+
+    String[] lengths = new String[1001];
+    lengths[0] = "";
+
+    lengths[1] = "one";
+    lengths[2] = "two";
+    lengths[3] = "three";
+    lengths[4] = "four";
+    lengths[5] = "five";
+    lengths[6] = "six";
+    lengths[7] = "seven";
+    lengths[8] = "eight";
+    lengths[9] = "nine";
+    lengths[10] = "ten";
+    lengths[11] = "eleven";
+    lengths[12] = "twelve";
+    lengths[13] = "thirteen";
+    lengths[14] = "fourteen";
+    lengths[15] = "fifteen";
+    lengths[16] = "sixteen";
+    lengths[17] = "seventeen";
+    lengths[18] = "eighteen";
+    lengths[19] = "nineteen";
+    lengths[20] = "twenty";
+    lengths[30] = "thirty";
+    lengths[40] = "forty";
+    lengths[50] = "fifty";
+    lengths[60] = "sixty";
+    lengths[70] = "seventy";
+    lengths[80] = "eighty";
+    lengths[90] = "ninety";
+    lengths[100] = "onehundred";
+    lengths[1000] = "onethousand";
+
+    int sum = 0;
+    for (int i = 1; i <= 1000; i++) {
+
+      if (lengths[i] == null) {
+
+        String len = "";
+
+        int n = i;
+
+        int p_ten = 1;
+
+        while (n > 0) {
+
+          int r = n % 10;
+
+          len = len + lengths[r * p_ten];
+
+          n = n / 10;
+          p_ten = p_ten * 10;
+        }
+        if (len == "" && i % 100 == 0) {
+          len = lengths[i / 100] + "hundred";
+        }
+
+        if (i / 100 > 0 && i % 100 > 0) { // and
+          len = len + "and";
+        }
+
+        lengths[i] = len;
+
+      }
+      // 21 : twenty one = 6 + 3 = 9
+      // 196 : one hundred and ninety six
+      // 201 : two hundred and one
+      // 211 : two hundred and eleven = 19
+      // 222 : two hundred and twenty two = 19
+      // 999 : nine hundred and ninety nine = 24
+      if (lengths[i] == null) {
+        System.out.println("can't cover : " + i);
+        break;
+      } else {
+        System.out.println(i + ":" + lengths[i]);
+      }
+
+      sum += lengths[i].length();
+      // 21088
+      // 36
+
+    }
+
+    System.out.println(sum);
+    System.out.println(21124 - sum);
+
+  }
+
+  public static void ttt() {
     /*
      * one two three four five six seven eight nine
      * ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen
@@ -55,29 +152,57 @@ public class Problem0017 {
     lengths[1000] = "onethousand".length();
 
     int sum = 0;
-    for (int i = 1; i < 1000; i++) {
+    for (int i = 1; i <= 1000; i++) {
 
-      int len = lengths[i];
+      if (lengths[i] == 0) {
 
-      if (len == 0) {
-        int index = 0;
+        int len = 0;
 
         int n = i;
 
-        // TODO handle cases,
+        int p_ten = 1;
+
+        while (n > 0) {
+
+          int r = n % 10;
+
+          len = len + lengths[r * p_ten];
+
+          n = n / 10;
+          p_ten = p_ten * 10;
+        }
+
+        if (len == 0 && i % 100 == 0) {
+          len = "hundred".length() + lengths[i / 100];
+        }
+
+        if (i / 100 > 0 && i % 100 > 0) { // and
+          System.out.println(i);
+          len += 3;
+        }
+
+        lengths[i] = len;
 
       }
-
-      if (len == 0) {
+      // 21 : twenty one = 6 + 3 = 9
+      // 196 : one hundred and ninety six
+      // 201 : two hundred and one
+      // 211 : two hundred and eleven = 19
+      // 222 : two hundred and twenty two = 19
+      // 999 : nine hundred and ninety nine = 24
+      if (lengths[i] == 0) {
         System.out.println("can't cover : " + i);
         break;
+      } else {
+        // System.out.println(i + ":" + lengths[i]);
       }
 
-      sum += len;
+      sum += lengths[i];
 
     }
 
     System.out.println(sum);
+    System.out.println(21124 - sum);
 
   }
 
