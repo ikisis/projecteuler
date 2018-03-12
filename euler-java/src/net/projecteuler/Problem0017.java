@@ -15,7 +15,12 @@ package net.projecteuler;
 public class Problem0017 {
 
   public static void main(String[] args) {
+    solved1();
 
+    // TODO reduce source length, too complexed
+  }
+
+  public static void debugging() {
     /*
      * one two three four five six seven eight nine
      * ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen
@@ -73,10 +78,20 @@ public class Problem0017 {
 
           len = len + lengths[r * p_ten];
 
+          if (i == 200) {
+            System.out.println("200 : " + len + " : " + n);
+          }
           n = n / 10;
           p_ten = p_ten * 10;
         }
-        if (len == "" && i % 100 == 0) {
+
+        if (i == 200) {
+          System.out.println("200 : " + len + "$$");
+        }
+        if ((len == "" || len == null || len.equals("null")) && i % 100 == 0) {
+          if (i == 200) {
+            System.out.println("200 : " + len + "$$$$");
+          }
           len = lengths[i / 100] + "hundred";
         }
 
@@ -108,10 +123,9 @@ public class Problem0017 {
 
     System.out.println(sum);
     System.out.println(21124 - sum);
-
   }
 
-  public static void ttt() {
+  public static void solved1() {
     /*
      * one two three four five six seven eight nine
      * ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen
@@ -164,6 +178,16 @@ public class Problem0017 {
 
         while (n > 0) {
 
+          if (p_ten == 1 && n > 100 && n % 100 < 20 && n % 100 > 10) {
+
+            int t = n % 100;
+            p_ten = p_ten * 100;
+
+            len = len + lengths[t];
+            n = n / 100;
+
+          }
+
           int r = n % 10;
 
           len = len + lengths[r * p_ten];
@@ -177,7 +201,7 @@ public class Problem0017 {
         }
 
         if (i / 100 > 0 && i % 100 > 0) { // and
-          System.out.println(i);
+          // System.out.println(i);
           len += 3;
         }
 
@@ -202,7 +226,6 @@ public class Problem0017 {
     }
 
     System.out.println(sum);
-    System.out.println(21124 - sum);
 
   }
 
