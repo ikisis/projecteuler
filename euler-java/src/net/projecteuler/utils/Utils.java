@@ -2,6 +2,14 @@ package net.projecteuler.utils;
 
 public class Utils {
 
+  public static int sum(int[] seq) {
+    int sum = 0;
+    for (int i = 0; i < seq.length; i++) {
+      sum += seq[i];
+    }
+    return sum;
+  }
+
   public static void print_seq_to_num(int[] seq) {
     boolean flag = false;
     for (int i = 0; i < seq.length; i++) {
