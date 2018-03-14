@@ -27,12 +27,89 @@ public class Problem0026 {
 
     Utils.stopwatch(Problem0026::first_try);
 
+    double n = 1, d = 999;
+    System.out.println(n / d);
+    System.out.println(1d / 998d);
+    System.out.println(1d / 19d);
+    System.out.println(1d / 983d);
+
   }
 
   public static void first_try() {
-    double a = 10000000, b = 7;
+    int t = 10;
+    int decimal_base = 0;
+    int max_r = 0;
+    int max_r_d = 0;
+    for (int denominator = 2; denominator < 1000; denominator++) {
 
-    System.out.println(a / b);
+      int limit = 3000;
+      int[] decimals = new int[limit];
+
+      int numerator = t;
+
+      int remainder = 0;
+
+      int index = 0;
+
+      while (decimal_base + index < limit) {
+
+        int current = decimal_base + index;
+
+        int quotient = numerator / denominator;
+
+        decimals[current] = quotient;
+
+        if (remainder != 0 && remainder == numerator % denominator) {
+          break;
+        }
+
+        if (current > 3 && current % 2 == 0) {
+          int len = current / 2;
+          boolean flag = true;
+          for (int i = 0; i < len; i++) {
+            if (decimals[i] != decimals[i + len]) {
+              flag = false;
+            }
+          }
+
+          if (flag) {
+            if (max_r < len) {
+              max_r = len;
+              max_r_d = denominator;
+              // System.out.println(denominator + ", " + len);
+
+            }
+            break;
+          }
+        }
+
+        remainder = numerator % denominator;
+
+        index++;
+
+        if (remainder == 0) {
+          break;
+        }
+        numerator = remainder * 10;
+      }
+
+      // support(denominator, index, decimal_base, decimals);
+      if (denominator % t == 0) {
+        t *= 10;
+        decimal_base++;
+      }
+
+    }
+
+    System.out.println(max_r_d + ",," + max_r);
+  }
+
+  public static void support(int denominator, int index, int decimal_s, int[] decimals) {
+    System.out.print(denominator + ":" + index + " d: " + decimal_s + " > ");
+    for (int i = 0; i < index; i++) {
+      System.out.print(decimals[i]);
+    }
+    System.out.println();
   }
 
 }
