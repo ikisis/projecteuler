@@ -1,4 +1,4 @@
-package net.projecteuler;
+package net.projecteuler.level001;
 
 /*
  * A Pythagorean triplet is a set of three natural numbers, a < b < c, for which,

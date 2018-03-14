@@ -1,4 +1,4 @@
-package net.projecteuler;
+package net.projecteuler.level001;
 
 import java.io.IOException;
 import java.io.InputStream;

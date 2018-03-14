@@ -1,4 +1,4 @@
-package net.projecteuler;
+package net.projecteuler.level002;
 
 import net.projecteuler.utils.Utils;
 

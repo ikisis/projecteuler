@@ -1,4 +1,4 @@
-package net.projecteuler;
+package net.projecteuler.level001;
 
 /*
  * The prime factors of 13195 are 5, 7, 13 and 29.

@@ -1,4 +1,4 @@
-package net.projecteuler;
+package net.projecteuler.level001;
 
 /*
  * You are given the following information, but you may prefer to do some research for yourself.

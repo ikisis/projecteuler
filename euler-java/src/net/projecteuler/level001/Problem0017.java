@@ -1,4 +1,4 @@
-package net.projecteuler;
+package net.projecteuler.level001;
 
 /*
  * If the numbers 1 to 5 are written out in words: one, two, three, four, five, then there are 3 + 3
