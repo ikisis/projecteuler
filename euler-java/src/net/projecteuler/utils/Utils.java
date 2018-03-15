@@ -149,27 +149,36 @@ public class Utils {
     return primes;
   }
 
-  public static int[] primes() {
+  public static boolean isPrime(int n) {
+    if (n == 0) {
+      return false;
+    }
 
-    int[] primes = new int[20];
+    if (n == 2) {
+      return true;
+    }
 
-    int size = 0;
-    for (int i = 2; i <= 20; i++) {
-      boolean flag = true;
-      for (int j = 2; j < i; j++) {
-        if (i % j == 0) {
-          flag = false;
-          break;
-        }
+    boolean flag = true;
+
+    for (int i = 2; i * i <= n; i++) {
+      if (n % i == 0) {
+        flag = false;
+        break;
       }
 
-      if (flag) {
-        primes[size++] = i;
-      }
+    }
+    return flag;
+  }
+
+  public static boolean[] primes(int n) {
+
+    boolean[] primes = new boolean[n + 1];
+
+    for (int i = 0; i <= n; i++) {
+      primes[i] = isPrime(i);
     }
 
     return primes;
-
   }
 
   public static void prime_factorization_print(int[] primes) {
