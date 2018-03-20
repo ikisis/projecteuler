@@ -1,5 +1,7 @@
 package net.projecteuler.utils;
 
+import java.util.Arrays;
+
 public class Utils {
 
   public static int sum(int[] seq) {
@@ -179,10 +181,38 @@ public class Utils {
     boolean[] primes = new boolean[n + 1];
 
     for (int i = 0; i <= n; i++) {
+
       primes[i] = isPrime(i);
+
     }
 
     return primes;
+  }
+
+  public static boolean[] primes_sieve(int n) {
+
+    boolean[] primes = new boolean[n + 1];
+
+    Arrays.fill(primes, true);
+
+    primes[1] = isPrime(1);
+
+    for (int i = 2; i <= n; i++) {
+
+      if (primes[i]) {
+        if (isPrime(i)) {
+          int iter = i + i;
+          while (iter <= n) {
+            primes[iter] = false;
+            iter += i;
+          }
+        }
+      }
+
+    }
+
+    return primes;
+
   }
 
   public static void prime_factorization_print(int[] primes) {
