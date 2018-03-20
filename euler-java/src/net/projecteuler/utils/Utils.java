@@ -154,6 +154,10 @@ public class Utils {
       return false;
     }
 
+    if (n == 1) {
+      return false;
+    }
+
     if (n == 2) {
       return true;
     }
