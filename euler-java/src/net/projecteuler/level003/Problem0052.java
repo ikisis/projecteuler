@@ -1,4 +1,4 @@
-package net.projecteuler.level002;
+package net.projecteuler.level003;
 
 import java.util.Arrays;
 
