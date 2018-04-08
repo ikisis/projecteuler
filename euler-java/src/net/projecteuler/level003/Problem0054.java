@@ -72,11 +72,11 @@ import net.projecteuler.level001.Problem0022;
 public class Problem0054 {
 
   public static void main(String[] args) {
-    String[][] hands = hands();
+    Hand[][] hands = hands();
 
     for (int i = 0; i < hands.length; i++) {
       for (int j = 0; j < hands[i].length; j++) {
-        System.out.print(hands[i][j]);
+        System.out.print(hands[i][j] + ", ");
       }
       System.out.println();
     }
@@ -147,6 +147,13 @@ public class Problem0054 {
       return number.compareTo(o.number);
     }
 
+    @Override
+    public String toString() {
+
+      return String.format("[ %2d %s ]", number, suit);
+
+    }
+
   }
 
   static class Hand {
@@ -165,10 +172,23 @@ public class Problem0054 {
       }
     }
 
+    @Override
+    public String toString() {
+      StringBuilder sb = new StringBuilder();
+      sb.append("{");
+
+      for (int i = 0; i < cards.length; i++) {
+        sb.append(cards[i].toString());
+      }
+      sb.append("}");
+
+      return sb.toString();
+    }
+
   }
 
-  public static String[][] hands() {
-    String[][] hands = null;
+  public static Hand[][] hands() {
+    Hand[][] hands = null;
 
     InputStream is = Problem0022.class.getClassLoader()
         .getResourceAsStream("net/projecteuler/res/p054_poker.txt");
@@ -188,13 +208,26 @@ public class Problem0054 {
 
     String[] rows = sb.toString().split("[\n]");
 
-    hands = new String[rows.length][];
+    hands = new Hand[rows.length][2];
 
     System.out.println(rows.length);
 
     for (i = 0; i < rows.length; i++) {
       String[] pairOfHand = rows[i].split("[ ]");
-      hands[i] = pairOfHand;
+
+      Hand a = new Hand();
+
+      for (int j = 0; j < 5; j++) {
+        a.add(new Card(pairOfHand[j]));
+      }
+
+      Hand b = new Hand();
+
+      for (int j = 5; j < 10; j++) {
+        b.add(new Card(pairOfHand[j]));
+      }
+
+      hands[i] = new Hand[] { a, b };
     }
 
     return hands;
