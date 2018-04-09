@@ -74,30 +74,25 @@ public class Problem0054 {
   public static void main(String[] args) {
     Hand[][] hands = hands();
 
+    int count = 0;
     for (int i = 0; i < hands.length; i++) {
-      for (int j = 0; j < hands[i].length; j++) {
-        System.out.print(hands[i][j] + ", ");
+
+      if (hands[i][0].compareTo(hands[i][1]) == 1) {
+
+        count++;
+        for (int j = 0; j < hands[i].length; j++) {
+          System.out.print(hands[i][j] + ", ");
+        }
+        System.out.println();
       }
-      System.out.println();
+
     }
+
+    System.out.println("res : " + count);
+    // 362?
 
   }
 
-  /*
-   * High Card: Highest value card.
-   * One Pair: Two cards of the same value.
-   * 300 - Two Pairs: Two different pairs.
-   * 400 - Three of a Kind: Three cards of the same value.
-   * 500 - Straight: All cards are consecutive values.
-   * 600 - Flush: All cards of the same suit.
-   * 700 - Full House: Three of a kind and a pair.
-   * 800 - Four of a Kind: Four cards of the same value.
-   * 900 - Straight Flush: All cards are consecutive values of same suit.
-   * 1000 - Royal Flush: Ten, Jack, Queen, King, Ace, in same suit.
-   *
-   * 2, 3, 4, 5, 6, 7, 8, 9, 10, Jack, Queen, King, Ace.
-   * 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14
-   */
   public static int judge(int[] hand) {
 
     return 0;
@@ -156,10 +151,12 @@ public class Problem0054 {
 
   }
 
-  static class Hand {
+  static class Hand implements Comparable<Hand> {
 
     public Card[] cards = new Card[5];
     public int highestCard = 0;
+
+    public Integer value = 0;
 
     private int index = 0;
 
@@ -169,6 +166,97 @@ public class Problem0054 {
 
       if (index == 5) {
         Arrays.sort(cards);
+
+        int consecutive = 0;
+        int same_suite = 0;
+
+        int same_value = 0;
+
+        int pair = 0;
+        int three_of_kind = 0;
+        int four_of_kind = 0;
+
+        int highest_value = 0;
+
+        for (int i = 0; i < cards.length - 1; i++) {
+          if ((cards[i].number + 1) == cards[i + 1].number) {
+            consecutive++;
+          } else {
+            consecutive = 0;
+          }
+
+          if ((cards[i].suit) == cards[i + 1].suit) {
+            same_suite++;
+          } else {
+
+          }
+
+          if ((cards[i].number) == cards[i + 1].number) {
+            same_value++;
+            if (same_value == 1) {
+              pair++;
+            } else if (same_value == 2) {
+              pair--;
+              three_of_kind++;
+            } else if (same_value == 3) {
+              three_of_kind--;
+              four_of_kind++;
+            }
+            if (cards[i + 1].number > highest_value) {
+              highest_value = cards[i + 1].number;
+            }
+          } else {
+            same_value = 0;
+          }
+        }
+
+        if (consecutive == 4 && same_suite == 4) {
+          if (cards[4].number == 14) {
+            value = 1000;
+          } else {
+            value = 900 + cards[4].number;
+          }
+
+          return;// royal flush, straight flush
+        }
+
+        if (four_of_kind > 0) {
+          value = 800 + highest_value;
+          return; // Four of a Kind
+        }
+
+        if (three_of_kind > 0 && pair > 0) {
+          value = 700 + highest_value;
+          return; // Full House
+        }
+
+        if (same_suite == 4) {
+          value = 600 + cards[4].number;
+          return; // flush
+        }
+
+        if (consecutive == 4) {
+          value = 500 + cards[4].number;
+          return; // straight
+        }
+
+        if (three_of_kind > 0) {
+          value = 400 + highest_value;
+          return; // Three of a Kind
+        }
+
+        if (pair == 2) {
+          value = 300 + highest_value;
+          return; // two pair
+        }
+
+        if (pair == 1) {
+          value = 200 + highest_value;
+          return; // one pair
+        }
+
+        value = 100 + cards[4].number;
+
       }
     }
 
@@ -180,9 +268,16 @@ public class Problem0054 {
       for (int i = 0; i < cards.length; i++) {
         sb.append(cards[i].toString());
       }
-      sb.append("}");
+
+      sb.append(" <" + value + "> }");
 
       return sb.toString();
+    }
+
+    @Override
+    public int compareTo(Hand o) {
+
+      return this.value.compareTo(o.value);
     }
 
   }
