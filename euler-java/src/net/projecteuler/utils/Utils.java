@@ -12,6 +12,24 @@ public class Utils {
     return sum;
   }
 
+  public static void print_seq(int[] seq) {
+    for (int i = 0; i < seq.length; i++) {
+
+      System.out.print(seq[i] + ",");
+
+    }
+    System.out.println();
+  }
+
+  public static void print_seq(long[] seq) {
+    for (int i = 0; i < seq.length; i++) {
+
+      System.out.print(seq[i] + ",");
+
+    }
+    System.out.println();
+  }
+
   public static void print_seq_to_num(int[] seq) {
     boolean flag = false;
     for (int i = 0; i < seq.length; i++) {
@@ -152,6 +170,31 @@ public class Utils {
   }
 
   public static boolean isPrime(int n) {
+    if (n == 0) {
+      return false;
+    }
+
+    if (n == 1) {
+      return false;
+    }
+
+    if (n == 2) {
+      return true;
+    }
+
+    boolean flag = true;
+
+    for (int i = 2; i * i <= n; i++) {
+      if (n % i == 0) {
+        flag = false;
+        break;
+      }
+
+    }
+    return flag;
+  }
+
+  public static boolean isPrime(long n) {
     if (n == 0) {
       return false;
     }
