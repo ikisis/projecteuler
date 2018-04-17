@@ -11,14 +11,14 @@ public class Problem0003 {
 
     long a = 600851475143L, b = 5;
 
-    for (; b < a; b = b + 2) {
+    for (; b < a;) {
 
       if (a % b == 0) {
 
         a = a / b;
 
-        b = 5;
-
+      } else {
+        b++;
       }
 
     }
