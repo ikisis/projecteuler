@@ -14,6 +14,8 @@ public class Problem0004 {
 
     solved2_WIP();
 
+    Utils.stopwatch(Problem0004::solved1);
+
   }
 
   public static void solved2_WIP() {
@@ -44,7 +46,7 @@ public class Problem0004 {
 
     for (int i = 0; i < a; i++) {
 
-      for (int j = 0; j < b; j++) {
+      for (int j = 11; j < b; j++) {
 
         int number = (a - i) * (b - j);
 
