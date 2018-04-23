@@ -10,7 +10,11 @@ object Problem0004 {
     
     //11(9091a + 910b + 100c)
     
-    for( a <- 9 to 1 by -1; b <- 9 to 0 by -1; c <- 9 to 0 by -1 ) {
+    for{ 
+      a <- 9 to 1 by -1
+      b <- 9 to 0 by -1 
+      c <- 9 to 0 by -1 
+      } {
       
       val n = 9091 * a + 910 * b + 100 * c
       
