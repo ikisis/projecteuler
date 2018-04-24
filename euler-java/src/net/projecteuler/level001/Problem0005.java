@@ -12,6 +12,12 @@ public class Problem0005 {
 
   public static void main(String[] args) {
 
+    Utils.stopwatch(Problem0005::brute_forced, Problem0005::optimized);
+
+  }
+
+  public static void optimized() {
+
     int[] primes = new int[20];
 
     for (int i = 2; i < 20; i++) {
@@ -30,10 +36,9 @@ public class Problem0005 {
 
     System.out.println(Utils.reversePrimeFactorization(primes));
 
-    System.out.println(brute_forced());
   }
 
-  public static int brute_forced() {
+  public static void brute_forced() {
 
     int n = 0;
     for (int i = 1; i < 1000000000; i++) {
@@ -55,7 +60,7 @@ public class Problem0005 {
       }
     }
 
-    return n;
+    System.out.println(n);
 
   }
 }

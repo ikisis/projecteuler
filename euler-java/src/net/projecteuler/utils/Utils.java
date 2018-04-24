@@ -99,7 +99,8 @@ public class Utils {
     System.out.println("B : " + lap2 + "ms elapsed");
 
     System.out.print(
-        (lap1 >= lap2 ? "B" : "A") + " reduced time " + ((lap1 - lap2) * 100 / lap1)
+        (lap1 >= lap2 ? "B" : "A") + " reduced time "
+            + (lap1 > 0 ? ((lap1 - lap2) * 100 / lap1) : lap2)
             + "% than " + (lap1 <= lap2 ? "B" : "A"));
 
   }
