@@ -22,7 +22,6 @@ object Problem0005 {
       val parts = Prime.factorization(n)
       
       for(p <- parts) {
-        println(s"$n : <<${p._1} ${p._2} >>")
         if(primes(p._1) < p._2) {
           primes(p._1) = p._2
         }
@@ -32,9 +31,7 @@ object Problem0005 {
     
     for(p <- (0 until primes.length)) {
       if(primes(p) > 0) {
-        println(primes(p))
         for(e <- 1 to primes(p)) {
-          
           result = result * p
         }
       }
