@@ -20,7 +20,7 @@ public class Problem0005 {
 
     int[] primes = new int[20];
 
-    for (int i = 2; i < 20; i++) {
+    for (int i = 11; i < 20; i++) {
 
       int[] parts = Utils.doPrimeFactorization(i);
 
