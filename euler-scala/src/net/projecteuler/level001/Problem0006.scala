@@ -37,7 +37,6 @@ object Problem0006 {
       sum_of_square += i * i
       square_of_sum += i
     }
-    println(s"$square_of_sum , $sum_of_square")
     println(s"${square_of_sum * square_of_sum - sum_of_square}")
 
   }
