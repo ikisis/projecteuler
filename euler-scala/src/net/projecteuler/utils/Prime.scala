@@ -28,9 +28,9 @@ object Prime {
       case 1 => false
       case 2 => true
       case i: Int => {
-        if(i % 2 == 0) true
+        if(i % 2 == 0) false
         else {
-          !(3 until n by 2).forall(n % _ == 0)
+          (3 until n by 2).forall(n % _ != 0)
         }
       }
     }
