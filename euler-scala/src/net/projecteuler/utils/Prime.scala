@@ -17,9 +17,10 @@ object Prime {
       }
     }
     
-    
-    for((a, b) <- primes.zipWithIndex; if a > 0) yield (b, a)    
-    
+    //for((a, b) <- primes.zipWithIndex; if a > 0) yield (b, a)
+
+    primes.indices.toArray.zip(primes)
+
   }
 
   def isPrime(n: Int): Boolean = {
