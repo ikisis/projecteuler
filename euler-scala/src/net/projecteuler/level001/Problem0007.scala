@@ -11,12 +11,12 @@ object Problem0007 {
 
   def main(args: Array[String]): Unit = {
 
-    brute_forced
+    brute_force
 
 
   }
 
-  def brute_forced() = {
+  def brute_force() = {
     var n = 0
     var i = 0
     while(n < 10001) {
