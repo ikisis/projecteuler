@@ -25,7 +25,7 @@ public class Problem0026 {
 
   public static void main(String[] args) {
 
-    Utils.stopwatch(Problem0026::first_try);
+    Utils.time(Problem0026::first_try);
 
     double n = 1, d = 999;
     System.out.println(n / d);

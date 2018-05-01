@@ -13,8 +13,8 @@ public class Problem0034 {
 
   public static void main(String[] args) {
 
-    Utils.stopwatch(Problem0034::brute_force);
-    Utils.stopwatch(Problem0034::first_try);
+    Utils.time(Problem0034::brute_force);
+    Utils.time(Problem0034::first_try);
 
   }
 

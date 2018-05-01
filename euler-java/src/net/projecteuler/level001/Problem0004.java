@@ -14,7 +14,7 @@ public class Problem0004 {
 
     solved2_WIP();
 
-    Utils.stopwatch(Problem0004::solved1);
+    Utils.time(Problem0004::solved1);
 
   }
 

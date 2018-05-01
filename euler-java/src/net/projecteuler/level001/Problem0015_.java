@@ -13,7 +13,7 @@ public class Problem0015_ {
 
   public static void main(String[] args) {
 
-    Utils.stopwatch(Problem0015_::pascals_triangle);
+    Utils.time(Problem0015_::pascals_triangle);
   }
 
   @Deprecated

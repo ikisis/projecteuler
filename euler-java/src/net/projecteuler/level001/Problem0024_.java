@@ -16,7 +16,7 @@ public class Problem0024_ {
   public static void main(String[] args) {
 
     // TODO solve by using euler's
-    Utils.stopwatch(Problem0024_::first_try);
+    Utils.time(Problem0024_::first_try);
 
   }
 

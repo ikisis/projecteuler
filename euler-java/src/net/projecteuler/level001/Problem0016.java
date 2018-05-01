@@ -13,9 +13,9 @@ public class Problem0016 {
 
   public static void main(String[] args) {
 
-    Utils.stopwatch(Problem0016::use_digit_array);
+    Utils.time(Problem0016::use_digit_array);
 
-    Utils.stopwatch(Problem0016::use_big_integer); // better performance
+    Utils.time(Problem0016::use_big_integer); // better performance
 
   }
 

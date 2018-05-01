@@ -20,7 +20,7 @@ import net.projecteuler.utils.Utils;
 public class Problem0047_ {
 
   public static void main(String[] args) {
-    Utils.stopwatch(Problem0047_::first_try);
+    Utils.time(Problem0047_::first_try);
   }
 
   public static void first_try() {

@@ -65,7 +65,7 @@ public class Utils {
     }
   }
 
-  public static void slowmotion(long term) {
+  public static void slow(long term) {
 
     try {
       Thread.sleep(term);
@@ -75,7 +75,7 @@ public class Utils {
     }
   }
 
-  public static long stopwatch(Runnable runnable) {
+  public static long time(Runnable runnable) {
 
     long startTime = System.currentTimeMillis();
 
@@ -92,8 +92,8 @@ public class Utils {
   }
 
   public static void stopwatch(Runnable runnable1, Runnable runnable2) {
-    long lap1 = stopwatch(runnable1);
-    long lap2 = stopwatch(runnable2);
+    long lap1 = time(runnable1);
+    long lap2 = time(runnable2);
 
     System.out.println("A : " + lap1 + "ms elapsed");
     System.out.println("B : " + lap2 + "ms elapsed");

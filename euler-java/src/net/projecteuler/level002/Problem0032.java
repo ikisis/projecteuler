@@ -28,7 +28,7 @@ public class Problem0032 {
     // 11 * 111 = 1221
     // 99 * 999 = 98901
 
-    Utils.stopwatch(Problem0032::first_try);
+    Utils.time(Problem0032::first_try);
   }
 
   // 8:24

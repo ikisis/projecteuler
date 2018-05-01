@@ -16,7 +16,7 @@ object Prime {
         i = i + 1
       }
     }
-    
+
     //for((a, b) <- primes.zipWithIndex; if a > 0) yield (b, a)
 
     primes.indices.toArray.zip(primes)

@@ -14,7 +14,7 @@ public class Problem0039 {
 
   public static void main(String[] args) {
 
-    Utils.stopwatch(Problem0039::first_try);
+    Utils.time(Problem0039::first_try);
 
     // System.out.println(20 * 20 + 48 * 48 == 52 * 52);
 

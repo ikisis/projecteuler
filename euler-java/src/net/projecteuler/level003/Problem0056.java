@@ -15,7 +15,7 @@ public class Problem0056 {
 
   public static void main(String[] args) {
 
-    Utils.stopwatch(Problem0056::first_try);
+    Utils.time(Problem0056::first_try);
 
   }
 

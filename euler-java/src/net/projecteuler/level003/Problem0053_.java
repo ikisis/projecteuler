@@ -33,7 +33,7 @@ public class Problem0053_ {
 //
 //    System.out.println(nCr.compareTo(new BigInteger("1000000")));
 
-    Utils.stopwatch(Problem0053_::first_try);
+    Utils.time(Problem0053_::first_try);
 
   }
 

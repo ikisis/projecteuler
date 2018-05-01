@@ -15,8 +15,8 @@ import net.projecteuler.utils.Utils;
 public class Problem0031_ {
 
   public static void main(String[] args) {
-    Utils.stopwatch(Problem0031_::first_try);
-    Utils.stopwatch(Problem0031_::reverse_count);
+    Utils.time(Problem0031_::first_try);
+    Utils.time(Problem0031_::reverse_count);
 
     // TODO recursion
 

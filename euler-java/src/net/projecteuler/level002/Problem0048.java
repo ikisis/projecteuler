@@ -11,7 +11,7 @@ public class Problem0048 {
 
   public static void main(String[] args) {
 
-    Utils.stopwatch(Problem0048::first_try);
+    Utils.time(Problem0048::first_try);
 
     // System.out.println(Long.MAX_VALUE % 10000000000L);
   }

@@ -21,7 +21,7 @@ public class Problem0036 {
     System.out.println(isPalindromic(calc(10, 585)));
     System.out.println(isPalindromic(calc(2, 585)));
 
-    Utils.stopwatch(Problem0036::first_try);
+    Utils.time(Problem0036::first_try);
 
   }
 

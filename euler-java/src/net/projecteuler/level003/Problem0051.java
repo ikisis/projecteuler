@@ -19,7 +19,7 @@ public class Problem0051 {
   public static void main(String[] args) {
 
     // Utils.stopwatch(Problem0051::first_try);
-    Utils.stopwatch(Problem0051::second_try);
+    Utils.time(Problem0051::second_try);
 
   }
 
@@ -152,7 +152,7 @@ public class Problem0051 {
 
   private static void print_used(int[] seq) {
 
-    Utils.slowmotion(100);
+    Utils.slow(100);
 
     System.out.println("----------------");
 

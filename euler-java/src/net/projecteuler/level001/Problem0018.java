@@ -39,7 +39,7 @@ public class Problem0018 {
 
   public static void main(String[] args) {
 
-    Utils.stopwatch(Problem0018::brute_force);
+    Utils.time(Problem0018::brute_force);
 
     // TODO solve NOTE
 

@@ -21,7 +21,7 @@ public class Problem0038 {
 
   public static void main(String[] args) {
 
-    Utils.stopwatch(Problem0038::first_try);
+    Utils.time(Problem0038::first_try);
 
     System.out.println(9327 * 1 + "" + 9327 * 2);
 
