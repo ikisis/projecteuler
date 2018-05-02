@@ -1,6 +1,6 @@
 package net.projecteuler.level001
 
-import net.projecteuler.utils.Prime
+import net.projecteuler.utils.{Prime, Stopwatch}
 
 /*
 By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13.
@@ -11,9 +11,8 @@ object Problem0007 {
 
   def main(args: Array[String]): Unit = {
 
-    brute_force
-
-
+    Stopwatch.elapsed(brute_force)
+    
   }
 
   def brute_force() = {
