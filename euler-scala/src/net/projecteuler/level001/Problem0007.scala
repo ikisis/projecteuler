@@ -12,7 +12,7 @@ object Problem0007 {
   def main(args: Array[String]): Unit = {
 
     Stopwatch.elapsed(brute_force)
-    
+
   }
 
   def brute_force() = {
