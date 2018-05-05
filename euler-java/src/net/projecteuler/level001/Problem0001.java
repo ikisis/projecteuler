@@ -1,5 +1,7 @@
 package net.projecteuler.level001;
 
+import net.projecteuler.utils.Utils;
+
 /*
  * If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9.
  * The sum of these multiples is 23.
@@ -10,7 +12,27 @@ public class Problem0001 {
 
   public static void main(String[] args) {
 
-    brute_force();
+    Utils.time(Problem0001::brute_force);
+
+    Utils.time(Problem0001::solution);
+
+  }
+
+  public static void brute_force() {
+
+    int sum = 0;
+
+    for (int i = 1; i < 1000; i++) {
+      if (i % 3 == 0 || i % 5 == 0) {
+        sum += i;
+      }
+    }
+
+    System.out.println(sum);
+
+  }
+
+  public static void solution() {
 
     boolean[] checked = new boolean[1001];
 
@@ -31,20 +53,6 @@ public class Problem0001 {
         b += 5;
       }
 
-    }
-
-    System.out.println(sum);
-
-  }
-
-  public static void brute_force() {
-
-    int sum = 0;
-
-    for (int i = 1; i < 1000; i++) {
-      if (i % 3 == 0 || i % 5 == 0) {
-        sum += i;
-      }
     }
 
     System.out.println(sum);
