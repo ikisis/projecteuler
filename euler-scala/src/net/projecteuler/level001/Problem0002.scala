@@ -14,6 +14,8 @@ object Problem0002 {
 
     Stopwatch.elapsed(solution)
 
+    Stopwatch.elapsed(solution2)
+
   }
 
   def solution = {
@@ -27,6 +29,26 @@ object Problem0002 {
       }
 
     println(fib(0, 1, 2, 3))
+
+  }
+
+  def solution2 = {
+
+    var a = 1
+    var b = 2
+    var c = 3
+    var sum = 0
+
+    while(b < 4000000) {
+
+      sum += b
+      a = b + c
+      b = c + a
+      c = a + b
+
+    }
+
+    println(sum)
 
   }
 
