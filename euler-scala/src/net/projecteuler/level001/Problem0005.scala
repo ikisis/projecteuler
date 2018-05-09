@@ -1,6 +1,6 @@
 package net.projecteuler.level001
 
-import net.projecteuler.utils.Prime
+import net.projecteuler.utils.{Prime, Stopwatch}
 
 /*
 2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.
@@ -11,7 +11,7 @@ object Problem0005 {
   
   def main(args: Array[String]): Unit = {
   
-    loop_solution
+    Stopwatch.elapsed(loop_solution)
     
   }
   

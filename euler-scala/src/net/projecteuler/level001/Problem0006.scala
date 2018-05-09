@@ -1,5 +1,7 @@
 package net.projecteuler.level001
 
+import net.projecteuler.utils.Stopwatch
+
 /*
 The sum of the squares of the first ten natural numbers is,
 
@@ -15,8 +17,8 @@ object Problem0006 {
 
   def main(args: Array[String]): Unit = {
 
-    solution1
-    solution2
+    Stopwatch.elapsed(solution1)
+    Stopwatch.elapsed(solution2)
 
   }
 
