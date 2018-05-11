@@ -41,9 +41,16 @@ object Problem0008 {
 
   def solution = {
 
-    val a = digits
+    val digit_array = digits
 
-    println(a.getClass)
+
+    var max = 0
+    (0 until digit_array.size - 13).foreach { n =>
+      val product = (n until n + 13).foldLeft(1)((product, next) =>(product * digit_array(next)) )
+      if(max < product) max = product
+    }
+
+    println(max)
 
   }
 
@@ -67,7 +74,7 @@ object Problem0008 {
       "07198403850962455444362981230987879927244284909188" +
       "84580156166097919133875499200524063689912560717606" +
       "05886116467109405077541002256983155200055935729725" +
-      "71636269561882670428252483600823257530420752963450").toArray.map(_.toInt)
+      "71636269561882670428252483600823257530420752963450").toArray.map(s => Integer.parseInt(s.toString))
   }
 
 }
