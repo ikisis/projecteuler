@@ -35,7 +35,25 @@ object Problem0008 {
 
   def main(args: Array[String]): Unit = {
 
+    Stopwatch.elapsed(solution_f)
+
     Stopwatch.elapsed(solution)
+
+    Stopwatch.elapsed(solution_loop)
+
+    Stopwatch.elapsed(solution_loop2)
+
+  }
+
+  def solution_f = {
+
+    println((0 until digits.size - 13).foldLeft(0)((max, n) => {
+      val p = (n until n + 13).foldLeft(1)((p, next) => (p * digits(next)))
+      (max < p) match {
+        case true => p
+        case false => max
+      }
+    }))
 
   }
 
@@ -43,18 +61,66 @@ object Problem0008 {
 
     val digit_array = digits
 
-
     var max = 0
     (0 until digit_array.size - 13).foreach { n =>
-      val product = (n until n + 13).foldLeft(1)((product, next) =>(product * digit_array(next)) )
-      if(max < product) max = product
+      val product = (n until n + 13).foldLeft(1)((product, next) => (product * digit_array(next)))
+      if (max < product) max = product
     }
 
     println(max)
 
   }
 
-  def digits: Array[Int] = {
+  def solution_loop = {
+
+    val digit_array = digits
+
+    var max = 0
+
+    for (i <- 0 until digit_array.size - 13) {
+
+      var p = 1;
+
+
+      for (j <- i until i + 13) {
+
+        p *= digit_array(j)
+
+      }
+
+      if (max < p) max = p
+
+    }
+
+    println(max)
+
+  }
+
+  def solution_loop2 = {
+
+    val digit_array = digits
+
+    var max = 0
+
+    for (i <- 0 until digit_array.size - 13) {
+
+      var p = 1
+      var j = i
+      while (p > 0 && j - i < 13) {
+        p *= digit_array(j)
+        j += 1
+      }
+
+
+      if (max < p) max = p
+
+    }
+
+    println(max)
+
+  }
+
+  val digits: Array[Int] = {
     ("73167176531330624919225119674426574742355349194934" +
       "96983520312774506326239578318016984801869478851843" +
       "85861560789112949495459501737958331952853208805511" +
