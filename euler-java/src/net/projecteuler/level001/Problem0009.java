@@ -1,5 +1,7 @@
 package net.projecteuler.level001;
 
+import net.projecteuler.utils.Utils;
+
 /*
  * A Pythagorean triplet is a set of three natural numbers, a < b < c, for which,
  *
@@ -13,6 +15,11 @@ public class Problem0009 {
 
   public static void main(String[] args) {
 
+    Utils.time(Problem0009::solution);
+
+  }
+
+  public static void solution() {
     for (int c = 1000; c > 1; c--) {
       int ab = 1000 - c;
       for (int b = ab; b > 1; b--) {
@@ -26,7 +33,6 @@ public class Problem0009 {
         }
       }
     }
-
   }
 
 }

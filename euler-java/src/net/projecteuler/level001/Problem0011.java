@@ -1,5 +1,7 @@
 package net.projecteuler.level001;
 
+import net.projecteuler.utils.Utils;
+
 /*
  * In the 20×20 grid below, four numbers along a diagonal line have been marked in red.
  *
@@ -33,6 +35,11 @@ public class Problem0011 {
 
   public static void main(String[] args) {
 
+    Utils.time(Problem0011::solution);
+
+  }
+
+  public static void solution() {
     int[][] grid = grid();
 
     int l = 4;
@@ -79,10 +86,9 @@ public class Problem0011 {
         if (i < grid.length - (l - 1) && j >= l - 1) {
           long p = 1;
           for (int k = 0; k < l; k++) {
-            System.out.println(i + " , " + j);
+            // System.out.println(i + " , " + j);
             p = p * grid[i + k][j - k];
             if (max < p) {
-              System.out.println("dd");
               max = p;
             }
           }
@@ -91,7 +97,6 @@ public class Problem0011 {
     }
 
     System.out.println(max);
-
   }
 
   public static int[][] grid() {

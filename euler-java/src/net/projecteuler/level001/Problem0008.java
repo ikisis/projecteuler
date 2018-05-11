@@ -1,5 +1,7 @@
 package net.projecteuler.level001;
 
+import net.projecteuler.utils.Utils;
+
 /*
  * The four adjacent digits in the 1000-digit number that have the greatest product are 9 × 9 × 8 ×
  * 9 = 5832.
@@ -32,7 +34,7 @@ public class Problem0008 {
 
   public static void main(String[] args) {
 
-    brute_force();
+    Utils.time(Problem0008::brute_force);
 
   }
 

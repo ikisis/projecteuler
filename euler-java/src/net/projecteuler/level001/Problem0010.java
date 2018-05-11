@@ -1,5 +1,7 @@
 package net.projecteuler.level001;
 
+import net.projecteuler.utils.Utils;
+
 /*
  * The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
  *
@@ -9,6 +11,11 @@ public class Problem0010 {
 
   public static void main(String[] args) {
 
+    Utils.time(Problem0010::solution);
+
+  }
+
+  public static void solution() {
     int limit = 2_000_000;
 
     boolean[] checked = new boolean[limit];
