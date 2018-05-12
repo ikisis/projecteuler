@@ -12,7 +12,7 @@ public class Problem0005 {
 
   public static void main(String[] args) {
 
-    Utils.stopwatch(Problem0005::brute_forced, Problem0005::optimized);
+    Utils.time(Problem0005::brute_forced, Problem0005::optimized);
 
   }
 

@@ -23,7 +23,7 @@ public class Problem0014 {
 
   public static void main(String[] args) {
 
-    Utils.stopwatch(Problem0014::brute_force, Problem0014::memoezation);
+    Utils.time(Problem0014::brute_force, Problem0014::memoezation);
 
   }
 

@@ -1,5 +1,7 @@
 package net.projecteuler.level001;
 
+import net.projecteuler.utils.Utils;
+
 /*
  * Work out the first ten digits of the sum of the following one-hundred 50-digit numbers.
  *
@@ -107,7 +109,10 @@ package net.projecteuler.level001;
 public class Problem0013 {
 
   public static void main(String[] args) {
+    Utils.time(Problem0013::solution);
+  }
 
+  public static void solution() {
     int[][] numbers = numbers();
 
     int add = 3;
@@ -140,7 +145,6 @@ public class Problem0013 {
     for (int k = 0; k < result.length; k++) {
       System.out.print(result[k]);
     }
-
   }
 
   public static int[][] numbers() {

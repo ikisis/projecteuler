@@ -16,16 +16,6 @@ public class Problem0015_ {
     Utils.time(Problem0015_::pascals_triangle);
   }
 
-  @Deprecated
-  public static long pathTo(int n, int m) {
-    if (n == 0 || m == 0) {
-      return 1L;
-    }
-
-    return pathTo(n - 1, m) + pathTo(n, m - 1);
-
-  }
-
   public static void pascals_triangle() {
     int n = 21, m = 21;
 
