@@ -91,7 +91,7 @@ public class Utils {
 
   }
 
-  public static void stopwatch(Runnable runnable1, Runnable runnable2) {
+  public static void time(Runnable runnable1, Runnable runnable2) {
     long lap1 = time(runnable1);
     long lap2 = time(runnable2);
 
