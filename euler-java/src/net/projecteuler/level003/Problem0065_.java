@@ -11,9 +11,11 @@ import net.projecteuler.utils.Utils;
 public class Problem0065_ {
 
   public static void main(String[] args) {
-    Utils.time(Problem0065_::first_try);
 
-    Utils.time(Problem0065_::solution);
+    // Utils.time(Problem0065_::first_try);
+
+    Utils.time(Problem0065_::second_try);
+
   }
 
   @Deprecated
@@ -64,29 +66,43 @@ public class Problem0065_ {
 
   }
 
-  public static void solution() {
-    int upperbound = 100;
-    int result = 0;
+  public static void second_try() {
 
-    BigInteger d = new BigInteger("" + 1);
-    BigInteger n = new BigInteger("" + 2);
+    Integer i = 100;
 
-    for (int i = 2; i <= upperbound; i++) {
-      BigInteger temp = d;
-      int cc = (i % 3 == 0) ? 2 * (i / 3) : 1;
-      BigInteger c = new BigInteger("" + cc);
-      d = n;
-      n = c.multiply(d).add(temp);
-      System.out.println(n);
+    i -= 2;
+
+    BigInteger numerator = BigInteger.valueOf(find_a(i + 1)), denomirator = BigInteger.valueOf(1);
+
+    for (; i >= 0; i--) {
+
+      Integer a = find_a(i);
+
+      BigInteger tmp = numerator;
+
+      numerator = numerator.multiply(BigInteger.valueOf(a)).add(denomirator);
+
+      denomirator = tmp;
 
     }
 
-    for (char c : n.toString().toCharArray()) {
-      result += Integer.parseInt("" + c);
+    System.out.println(">>" + numerator + "/" + denomirator);
+
+    int digit_sum = 0;
+    for (Character c : numerator.toString().toCharArray()) {
+      digit_sum += Integer.parseInt(c.toString());
     }
 
-    System.out.println(result);
+    System.out.println(digit_sum);
 
+  }
+
+  public static Integer find_a(int i) {
+    if (i == 0) {
+      return 2;
+    }
+
+    return i % 3 == 2 ? ((i / 3) + 1) * 2 : 1;
   }
 
 }
