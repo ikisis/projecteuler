@@ -18,6 +18,41 @@ object Problem0009 {
 
     Stopwatch.elapsed(solution_loop)
 
+    Stopwatch.elapsed(solution_loop2)
+
+    Stopwatch.elapsed(solution_loop3)
+
+  }
+
+  def solution_loop2 = {
+
+    var c = 997
+
+    while(c >= 3) {
+
+      val ab = 1000 - c
+
+      var b = ab - 1
+
+      while(b >= 2) {
+
+        val a = ab - b
+
+        if(a < b && b < c) {
+
+          if(a * a + b * b == c * c) {
+            println(a * b * c)
+          }
+
+        }
+
+        b -= 1
+
+      }
+
+      c -= 1
+    }
+
   }
 
   def solution_loop = {
@@ -43,5 +78,20 @@ object Problem0009 {
     }
 
   }
+
+  def solution_loop3 = {
+
+    val p = (for {
+      c <- (1000 to 3) by - 1
+      ab = 1000 -c
+      b <- (ab - 1 to 2) by -1
+      a = ab - b
+      if a < b && b < c
+      if a * a + b * b == c * c
+    } yield a * b * c).apply(0)
+    println(p)
+
+  }
+
 
 }
