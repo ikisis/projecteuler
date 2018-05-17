@@ -1,8 +1,50 @@
 package net.projecteuler.utils;
 
+import java.math.BigInteger;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
 
 public class Utils {
+
+  private static final BigInteger TWO = BigInteger.valueOf(2);
+
+  public static BigInteger sqrt(BigInteger n) {
+    if (n.signum() >= 0) {
+      final int bitLength = n.bitLength();
+      BigInteger root = BigInteger.ONE.shiftLeft(bitLength / 2);
+
+      while (!isSqrt(n, root)) {
+        root = root.add(n.divide(root)).divide(TWO);
+      }
+      return root;
+    } else {
+      throw new ArithmeticException("square root of negative number");
+    }
+  }
+
+  private static boolean isSqrt(BigInteger n, BigInteger root) {
+    final BigInteger lowerBound = root.pow(2);
+    final BigInteger upperBound = root.add(BigInteger.ONE).pow(2);
+    return lowerBound.compareTo(n) <= 0
+        && n.compareTo(upperBound) < 0;
+  }
+
+  public static boolean isSquare(int n) {
+
+    int i = n / 2;
+    for (; i * i > n; i--) {}
+
+    return i * i == n;
+
+  }
+
+  public static boolean isSquare(BigInteger n) {
+
+    return sqrt(n).pow(2).equals(n);
+
+  }
 
   public static int sum(int[] seq) {
     int sum = 0;
@@ -161,9 +203,32 @@ public class Utils {
       if (acc % i == 0) {
         acc = acc / i;
         primes[i] = primes[i] + 1;
-        i = 2;
       } else {
         i++;
+      }
+    }
+
+    return primes;
+  }
+
+  public static Map<BigInteger, Integer> doPrimeFactorization(BigInteger n) {
+
+    Map<BigInteger, Integer> primes = new HashMap<>();
+
+    BigInteger acc = n;
+
+    for (BigInteger i = BigInteger.valueOf(2); i.compareTo(acc) < 1;) {
+      if (acc.mod(i).equals(BigInteger.ZERO)) {
+        acc = acc.divide(i);
+
+        if (primes.containsKey(i)) {
+          primes.put(i, primes.get(i) + 1);
+        } else {
+          primes.put(i, 1);
+        }
+
+      } else {
+        i = i.add(BigInteger.ONE);
       }
     }
 
@@ -277,5 +342,16 @@ public class Utils {
       }
     }
     System.out.println();
+  }
+
+  public static void prime_factorization_print(Map<BigInteger, Integer> primes) {
+
+    for (Entry<BigInteger, Integer> e : primes.entrySet()) {
+
+      System.out.print(e.getKey() + "^" + e.getValue() + " ");
+    }
+
+    System.out.println();
+
   }
 }
