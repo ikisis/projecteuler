@@ -39,9 +39,52 @@ public class Problem0018 {
 
   public static void main(String[] args) {
 
-    Utils.time(Problem0018::brute_force);
+//    Utils.time(Problem0018::brute_force);
+
+    Utils.time(Problem0018::solution);
 
     // TODO solve NOTE
+
+  }
+
+  public static void solution() {
+
+    int[][] triangle = triangle();
+
+    int[][] sum_triangle = new int[triangle.length][triangle[0].length];
+
+    int max = 0;
+
+    for (int i = 0; i < triangle.length; i++) {
+      for (int j = 0; j < triangle[i].length; j++) {
+
+        if (i == 0) {
+          sum_triangle[i][j] = triangle[i][j];
+          continue;
+        }
+
+        int left = 0;
+
+        if (j > 0) {
+          left = sum_triangle[i - 1][j - 1];
+        }
+
+        int right = sum_triangle[i - 1][j];
+
+        sum_triangle[i][j] = triangle[i][j] + (left > right ? left : right);
+
+        if (sum_triangle[i][j] > max) {
+          max = sum_triangle[i][j];
+        }
+
+      }
+
+    }
+
+    print_triagle(triangle);
+    print_triagle(sum_triangle);
+
+    System.out.println(max);
 
   }
 
