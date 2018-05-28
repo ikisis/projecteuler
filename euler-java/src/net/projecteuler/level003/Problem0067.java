@@ -28,37 +28,45 @@ public class Problem0067 {
 
   public static void main(String[] args) {
 
-    Utils.time(Problem0067::brute_force);
+    // Utils.time(Problem0067::brute_force);
+
+    Utils.time(Problem0067::solution);
 
     // TODO solve NOTE
 
   }
 
-  public static void brute_force() {
+  public static void solution() {
 
     int[][] triangle = triangle();
 
-    print_triagle(triangle);
+    int[][] sum_triangle = new int[triangle.length][triangle[0].length];
 
-    System.out.println(">>" + traverse(triangle, 0, 0, 0));
+    int max = 0;
 
-  }
+    for (int i = 0; i < triangle.length; i++) {
+      for (int j = 0; j < triangle[i].length; j++) {
 
-  private static int traverse(int[][] triangle, int depth, int index, int sum) {
+        if (i == 0) {
+          sum_triangle[i][j] = triangle[i][j];
+          continue;
+        }
 
-    if (depth >= triangle.length) {
-      return sum;
+        int left = j > 0 ? sum_triangle[i - 1][j - 1] : 0;
+
+        int right = sum_triangle[i - 1][j];
+
+        sum_triangle[i][j] = triangle[i][j] + (left > right ? left : right);
+
+        if (sum_triangle[i][j] > max) {
+          max = sum_triangle[i][j];
+        }
+
+      }
+
     }
 
-    sum = sum + triangle[depth][index];
-
-    depth++;
-
-    int left = traverse(triangle, depth, index, sum);
-
-    int right = traverse(triangle, depth, index + 1, sum);
-
-    return left > right ? left : right;
+    System.out.println(max);
 
   }
 
