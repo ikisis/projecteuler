@@ -25,17 +25,53 @@ object Prime {
 
   def isPrime(n: Int): Boolean = {
 
+    def isPrime0(n: Int): Boolean = {
+
+      var i = 2;
+
+      while(i * i < n) {
+
+        if(n % i == 0) {
+          return false
+        }
+
+        i += 1;
+      }
+
+      true
+
+    }
+
     n match {
       case 1 => false
       case 2 => true
       case i: Int => {
         if(i % 2 == 0) false
         else {
-          (3 until n by 2).forall(n % _ != 0)
+          isPrime0(n)
         }
       }
     }
 
+
+
   }
+
+
+
+  /*
+
+      boolean flag = true;
+
+      for (int j = 2; j * j < i; j++) {
+        if (i % j == 0) {
+          flag = false;
+          break;
+        }
+      }
+
+
+
+   */
 
 }
