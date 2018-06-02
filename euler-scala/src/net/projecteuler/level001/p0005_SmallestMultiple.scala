@@ -7,7 +7,7 @@ import net.projecteuler.utils.{Prime, Stopwatch}
 
 What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
  */
-object Problem0005 {
+object p0005_SmallestMultiple {
   
   def main(args: Array[String]): Unit = {
   

@@ -12,7 +12,7 @@ import scala.annotation.tailrec
  *
  * What is the largest prime factor of the number 600851475143 ?
  */
-object Problem0003 {
+object p0003_LargestPrimeFactor {
   def main(args: Array[String]): Unit = {
 
     Stopwatch.elapsed(solution)

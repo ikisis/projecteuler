@@ -8,7 +8,7 @@ If we list all the natural numbers below 10 that are multiples of 3 or 5, we get
 Find the sum of all the multiples of 3 or 5 below 1000.
 */
 
-object Problem0001 {
+object p0001_MultiplesOf3And5 {
   def main(args: Array[String]): Unit = {
 
     Stopwatch.elapsed(solution)

@@ -31,7 +31,7 @@ import net.projecteuler.utils.Stopwatch
  * Find the thirteen adjacent digits in the 1000-digit number that have the greatest product. What
  * is the value of this product?
  */
-object Problem0008 {
+object p0008_LargestProductInASeries {
 
   def main(args: Array[String]): Unit = {
 

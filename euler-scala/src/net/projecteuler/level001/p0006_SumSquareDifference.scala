@@ -13,7 +13,7 @@ Hence the difference between the sum of the squares of the first ten natural num
 
 Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
  */
-object Problem0006 {
+object p0006_SumSquareDifference {
 
   def main(args: Array[String]): Unit = {
 
