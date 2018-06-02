@@ -2,7 +2,7 @@ package net.projecteuler.level001
 
 import net.projecteuler.utils.{Prime, Stopwatch}
 
-object Problem0010 {
+object p0010_SummationOfPrimes {
 
   def main(args: Array[String]): Unit = {
 

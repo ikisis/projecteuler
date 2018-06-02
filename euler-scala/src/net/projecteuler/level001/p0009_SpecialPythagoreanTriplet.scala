@@ -12,7 +12,7 @@ import net.projecteuler.utils.Stopwatch
  * Find the product abc.
  */
 
-object Problem0009 {
+object p0009_SpecialPythagoreanTriplet {
 
   def main(args: Array[String]): Unit = {
 
