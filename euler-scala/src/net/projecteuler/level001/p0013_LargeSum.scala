@@ -10,8 +10,40 @@ object p0013_LargeSum {
 
     Stopwatch.elapsed(solution_bigint)
 
+    Stopwatch.elapsed(solution_array)
+
   }
-  
+
+  def solution_array = {
+
+
+    var sum = Array.ofDim[Int](51)
+
+    var i = 0
+
+
+    for(c <- strings.reverse) {
+
+      var sum1 = sum(i) + Integer.parseInt(c.toString)
+
+      sum(i + 1) += sum1 / 10
+
+      sum(i) = sum1 % 10
+
+      i += 1
+
+      if(i  % 50 == 0) {
+
+        i = 0
+      }
+
+
+    }
+
+    println(sum.reverse.take(9).mkString)
+
+  }
+
 
   def solution_bigint = {
 
@@ -37,6 +69,8 @@ object p0013_LargeSum {
     }
 
     var j = 0
+
+    println(sum)
 
     while(j < 10) {
 
