@@ -10,7 +10,30 @@ object p0013_LargeSum {
 
     Stopwatch.elapsed(solution_bigint)
 
+    //best performance
     Stopwatch.elapsed(solution_array)
+
+    Stopwatch.elapsed(solution_array_f)
+
+  }
+
+  def solution_array_f = {
+
+    val ans = strings.map(s => Integer.parseInt(s.toString)).reverse.zipWithIndex.foldLeft(Array.ofDim[Int](51))((sum, pair) => {
+      val (v, i) = pair
+
+      val sum_i = i % 50
+
+      var sum1 = sum(sum_i) + v
+
+      sum(sum_i + 1) += sum1 / 10
+
+      sum(sum_i) = sum1 % 10
+
+      sum
+    }).reverse.take(9).mkString
+
+    println(ans)
 
   }
 
