@@ -10,6 +10,46 @@ object p0014_LongestCollatzSequence {
 
     Stopwatch.elapsed(solution)
 
+    Stopwatch.elapsed(brute_force_loop)
+
+  }
+
+  def brute_force_loop = {
+
+    var n = 1
+
+    var max = 0
+
+    var max_n = 0
+
+    while(n < 1000000) {
+
+      var i: Long = n
+
+      var len = 1
+
+      while(i != 1) {
+
+        if(i % 2 == 0) {
+          i = i / 2
+        } else {
+          i = 3 * i + 1
+        }
+
+        len += 1
+
+      }
+
+      if(len > max) {
+        max = len
+        max_n = n
+      }
+
+      n += 1
+    }
+
+    println(s"$max_n : $max")
+
   }
 
   def solution = {
