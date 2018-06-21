@@ -9,9 +9,99 @@ object p0014_LongestCollatzSequence {
   def main(args: Array[String]): Unit = {
 
     Stopwatch.elapsed(solution)
-    
+
+    Stopwatch.elapsed(brute_force_loop)
+
+    Stopwatch.elapsed(solution_loop)
+
   }
 
+  def solution_loop = {
+
+    var max, max_n = 0
+    var n = 1
+    var memo = Array.ofDim[Int](1000000 + 1)
+
+    while(n <= 1000000) {
+
+      var i: Long = n
+
+      var len = 1
+
+      while(i > 1) {
+
+        if(memo.length > i && memo(i.intValue()) > 0) {
+
+          len += memo(i.intValue()) - 1
+
+          i = 1
+
+        } else {
+
+          if(i % 2 == 0){
+            i = i / 2
+          } else {
+            i = 3 * i + 1
+          }
+
+          len += 1
+
+        }
+
+      }
+
+      memo(n) = len
+
+      if(len > max) {
+        max = len
+        max_n = n
+      }
+
+      n += 1
+
+    }
+
+    println(s"$max : $max_n")
+
+  }
+
+  def brute_force_loop = {
+
+    var n = 1
+
+    var max = 0
+
+    var max_n = 0
+
+    while(n < 1000000) {
+
+      var i: Long = n
+
+      var len = 1
+
+      while(i != 1) {
+
+        if(i % 2 == 0) {
+          i = i / 2
+        } else {
+          i = 3 * i + 1
+        }
+
+        len += 1
+
+      }
+
+      if(len > max) {
+        max = len
+        max_n = n
+      }
+
+      n += 1
+    }
+
+    println(s"$max_n : $max")
+
+  }
 
 
   def solution = {
