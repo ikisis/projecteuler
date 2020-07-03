@@ -8,13 +8,13 @@ import net.projecteuler.utils.Utils;
  *
  * Find the sum of all the multiples of 3 or 5 below 1000.
  */
-public class Problem0001 {
+public class P0001_MultiplesOf3And5 {
 
   public static void main(String[] args) {
 
-    Utils.time(Problem0001::brute_force);
+    Utils.time(P0001_MultiplesOf3And5::brute_force);
 
-    Utils.time(Problem0001::solution);
+    Utils.time(P0001_MultiplesOf3And5::solution);
 
   }
 
