@@ -11,11 +11,11 @@ import net.projecteuler.utils.Utils;
  * By considering the terms in the Fibonacci sequence whose values do not exceed four million, find
  * the sum of the even-valued terms.
  */
-public class Problem0002 {
+public class P0002_EvenFibonacciNumbers {
 
   public static void main(String[] args) {
 
-    Utils.time(Problem0002::solution);
+    Utils.time(P0002_EvenFibonacciNumbers::solution);
 
   }
 
