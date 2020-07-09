@@ -1,10 +1,18 @@
 package net.projecteuler.level003;
 
 import net.projecteuler.utils.Permutation;
+import net.projecteuler.utils.Utils;
 
 public class P0068_Magic5GonRing {
 
 	public static void main(String[] args) {
+
+		Utils.time(P0068_Magic5GonRing::brute_forced);
+		
+
+	}
+
+	public static void brute_forced() {
 
 		int[] nums = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
