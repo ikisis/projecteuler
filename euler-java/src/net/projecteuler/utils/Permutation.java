@@ -9,6 +9,28 @@ public class Permutation {
 		make(arr, 3, seq -> {
 			printArray(seq);
 		});
+		System.out.println(isPermutation(87109, 79180));
+	}
+	
+	public static boolean isPermutation(int n1, int n2) {
+		int[] n1_used = new int[10];
+		int[] n2_used = new int[10];
+
+		while(n1 > 1) {
+			n1_used[n1 % 10]++;
+			n1 /= 10;
+		}
+
+		while(n2 > 1) {
+			n2_used[n2 % 10]++;
+			n2 /= 10;
+		}
+		
+		for(int i = 0; i < 10; i ++) {
+			if(n1_used[i] != n2_used[i])
+				return false;
+		}
+		return true;
 	}
 
 	public static void make(int[] arr, int length, Consumer<int[]> consumer) {
