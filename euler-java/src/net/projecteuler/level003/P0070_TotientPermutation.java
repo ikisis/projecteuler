@@ -9,8 +9,43 @@ public class P0070_TotientPermutation {
 
 	public static void main(String[] args) {
 
-		first_try();
+		//first_try();
+		solution();
 
+	}
+
+	public static void solution() {
+
+		int max = 10000;
+		boolean[] primesSieve = Utils.primes_sieve(max);
+
+		ArrayList<Integer> primes = new ArrayList();
+		for(int i = 2; i < max; i ++) {
+			if(primesSieve[i])
+				primes.add(i);
+		}
+		
+		int nMax = 10_000_000;
+
+		System.out.println(primes.size());
+		int minN = 0;
+		double min = 100d;
+		for(int i = 0; i < primes.size() - 1; i++){
+			for(int j = i + 1; j < primes.size(); j++) {
+				int n = primes.get(i) * primes.get(j);
+				if(nMax < n)break;
+				int phi = (primes.get(i) - 1) * (primes.get(j) - 1); 
+				if(Permutation.isPermutation(n, phi)) {
+				double ratio = (double)n/phi;
+						if(ratio < min) {
+						minN = n;
+						min = ratio;
+					}
+				}
+
+			}
+		}
+		System.out.println(minN + "  >  " + min + " --- " + Totient.doPf(minN));
 	}
 
 	public static void first_try() {
