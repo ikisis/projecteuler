@@ -6,12 +6,8 @@ import java.util.TreeSet;
 public class Totient {
 
 	public static void main(String[] args) throws Exception{
-		for(int i = 2; i <= 500; i ++){
-			int calc1 = calc(i);
-			int calc2 = calc_slow(i);
-			Set<Integer> pf = doPf(i);
-			if(calc1 != calc2)
-				System.out.println(i + "  : " + calc(i) + " -- " + doPf(i) + "-- " + calc_slow(i)); 
+		for(int i = 2; i <= 30; i ++){
+			System.out.println(i + ">> " + doPf(i) + "-- " + calc_slow(i)); 
 		}
 		System.out.println(doPf(87109));
 		int n = 87109;
