@@ -1,4 +1,4 @@
 # projecteuler
-Problem solving
+Problem solving!
 
 https://projecteuler.net/archives
